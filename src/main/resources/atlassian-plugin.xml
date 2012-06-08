@@ -1,0 +1,28 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
+    <component key="exampleBulkInjector" class="ru.megaplan.jira.plugins.bulk.ExampleBulkInjectorImpl" public="true">
+        <interface>com.atlassian.sal.api.lifecycle.LifecycleAware</interface>
+        <interface>ru.megaplan.jira.plugins.bulk.ExampleBulkInjector</interface>
+    </component>
+    <webwork1 key="exampleBulkActions">
+        <actions>
+            <action name="ru.megaplan.jira.plugins.bulk.YourMommyOperationDetailsAction" alias="YourMommyOperation">
+                <command name="details" alias="YourMommyOperationDetails">
+                    <view name="success">/exampleDetails.vm</view>
+                    <view name="input">/exampleDetails.vm</view>
+                    <view name="error">/exampleDetails.vm</view>
+                </command>
+                <command name="detailsValidation" alias="YourMommyOperationDetailsValidation">
+                    <view name="input">/exampleValidation.vm</view>
+                    <view name="error">/exampleValidation.vm</view>
+                </command>
+                <command name="perform" alias="YourMommyOperationPerform">
+                </command>
+            </action>
+        </actions>
+    </webwork1>
+</atlassian-plugin>
